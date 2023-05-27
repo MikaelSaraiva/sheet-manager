@@ -1,0 +1,28 @@
+{
+  "name": "sheet-manager",
+  "version": "1.0.0",
+  "description": "API to manage a Google Sheet for SUS Queue Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikaelSaraiva/sheet-manager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikaelSaraiva/sheet-manager/issues"
+  },
+  "homepage": "https://github.com/MikaelSaraiva/sheet-manager#readme",
+  "dependencies": {
+    "@google-cloud/local-auth": "^2.1.0",
+    "body-parser": "^1.19.0",
+    "config": "^3.2.3",
+    "consign": "^0.1.6",
+    "express": "^4.17.1",
+    "googleapis": "^105.0.0"
+  }
+}
