@@ -1,24 +1,17 @@
 const { getSheetData } = require('./sheet')
 
 
-module.exports = app => {
-    const sheetManagerDB = app.data.sheetManager;
-    const controller = {};
+async function getUserInformantion(pacientName) {
+    let sheetData = await getSheetData()
 
-    controller.sheetInformation = async (req, res) => {
-        let sheetData = await getSheetData()
+    result = await queueInformation(sheetData, filterName(sheetData, pacientName))
 
-        result = await queueInformation(sheetData, filterName(sheetData, req.body.name))
-
-        res.status(200).json({
-            "result": "sucess",
-            "description": `Dados atualizados`,
-            "userName": req.body.name,
-            "response": result,
-        })
+    let information = {
+        "userName": pacientName,
+        "response": result,
     }
 
-    return controller;
+    return information;
 }
 
 function filterName(sheetData, pacientName) {
@@ -58,3 +51,4 @@ function queueInformation(sheetData, pacientData) {
     return informations
 }
 
+module.exports.getUserInformantion = getUserInformantion
